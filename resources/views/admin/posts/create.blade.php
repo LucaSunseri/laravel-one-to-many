@@ -35,7 +35,7 @@
             <div class="form-group">
                 <label for="category_id">Categoria</label>
                 <select class="form-control" name="category_id" id="category_id" aria-label="Default select example">
-                    <option>Seleziona una Categoria</option>
+                    <option value="">Seleziona una Categoria</option>
                     @foreach ($categories as $category)
                         <option @if ($category->id == old('category_id')) selected @endif value="{{ $category->id }}">{{ $category->name }} </option>
                     @endforeach
