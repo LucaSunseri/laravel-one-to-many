@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+
     <div class="container">
 
         <h1>Crea un nuovo Post</h1>
@@ -31,10 +32,19 @@
                     </div>
                 @enderror
             </div>
+            <div class="form-group">
+                <label for="category_id">Categoria</label>
+                <select class="form-control" name="category_id" id="category_id" aria-label="Default select example">
+                    <option selected>Seleziona una Categoria</option>
+                    @foreach ($categories as $category)
+                        <option @if ($category->id == old('category_id')) selected @endif value="{{ $category->id }}">{{ $category->name }} </option>
+                    @endforeach
+
+                </select>
+            </div>
             <button type="submit" class="btn btn-primary">Submit</button>
             <button type="reset" class="btn btn-dark">Reset</button>
         </form>
-
 
     </div>
 @endsection

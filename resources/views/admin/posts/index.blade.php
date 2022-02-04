@@ -19,6 +19,7 @@
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Title</th>
+                    <th scope="col">Category</th>
                     <th colspan="4" scope="col">Content</th>
                 </tr>
             </thead>
@@ -28,6 +29,11 @@
                     <tr>
                         <th scope="row">{{ $post->id }}</th>
                         <td>{{ $post->title }}</td>
+                        @if ($post->category)
+                            <td>{{ $post->category->name }}</td>
+                        @else
+                            <td>/</td>
+                        @endif
                         <td>{{ Str::limit($post->content, 50, '...') }}</td>
                         <td>
                             <a class="btn btn-success" href="{{ route('admin.posts.show', $post) }}">INFO</a>
